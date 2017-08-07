@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<artifactId>bingo-base-pom</artifactId>
+		<groupId>bingo.pom.parent</groupId>
+		<version>1.1.0</version>
+	</parent>
+
+	<groupId>bingo.sso</groupId>
+	<artifactId>bingo-sso-2.0</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>bingo.sso.server.webapp</name>	
+
+	<properties>
+		<bingo-sso-plugin-ntlm.version>2.0.0-SNAPSHOT</bingo-sso-plugin-ntlm.version>
+		<bingo-sso-plugin-jdbc.version>2.0.0-SNAPSHOT</bingo-sso-plugin-jdbc.version>
+		<bingo-sso-plugin-registry-db.version>2.0.0-SNAPSHOT</bingo-sso-plugin-registry-db.version>
+		<bingo-sso-plugin-log.version>2.0.0-SNAPSHOT</bingo-sso-plugin-log.version>
+		<bingo-sso-plugin-gmcc-portal.version>2.0.0-SNAPSHOT</bingo-sso-plugin-gmcc-portal.version>
+		<bingo-sso-openid.version>2.0.0-SNAPSHOT</bingo-sso-openid.version>
+		<bingo-sso-core.version>2.0.0-SNAPSHOT</bingo-sso-core.version>
+		<bingo-sso-plugin-ssoconnector.version>2.0.0-SNAPSHOT</bingo-sso-plugin-ssoconnector.version>
+		<finalName>sso</finalName>
+	</properties>
+
+	<build>
+		<finalName>${finalName}</finalName>
+		<outputDirectory>${basedir}/WebRoot/WEB-INF/classes</outputDirectory>		
+	</build>
+
+	<dependencies>
+		<!-- add your sso server plugin here -->
+		<dependency>
+			<groupId>bingo.sso</groupId>
+			<artifactId>bingo-sso-plugin-ntlm</artifactId>
+			<version>${bingo-sso-plugin-ntlm.version}</version>
+			<type>jar</type>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>bingo.sso</groupId>
+			<artifactId>bingo-sso-plugin-jdbc</artifactId>
+			<version>${bingo-sso-plugin-jdbc.version}</version>
+			<type>jar</type>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>bingo.sso</groupId>
+			<artifactId>bingo-sso-plugin-gmcc-portal</artifactId>
+			<version>${bingo-sso-plugin-gmcc-portal.version}</version>
+			<type>jar</type>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>bingo.sso</groupId>
+			<artifactId>bingo-sso-core</artifactId>
+			<version>${bingo-sso-core.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>bingo.sso</groupId>
+			<artifactId>bingo-sso-openid</artifactId>
+			<version>${bingo-sso-openid.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.3</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.2.134</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc14</artifactId>
+			<version>10.2.0.3.0</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>sqljdbc</artifactId>
+			<version>3.0</version>
+			<scope>runtime</scope>
+		</dependency>	
+		<!-- 
+		<dependency>
+			<groupId>bingo.sso</groupId>
+			<artifactId>bingo-sso-plugin-ssoconnector</artifactId>
+			<version>${bingo-sso-plugin-ssoconnector.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		 -->	
+	</dependencies>
+</project>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"       
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+	
+    <bean id="ticketCookieRetrievingHandler" class="bingo.sso.core.login.TicketCookieRetrievingHandler"
+          p:centralAuthenticationService-ref="centralAuthenticationService"/>
+          
+    <bean id="ticketCookieWritingHandler" class="bingo.sso.core.login.TicketCookieWritingHandler"/>          
+   
+    <bean id="loginFormViewHandler" class="bingo.sso.core.login.LoginFormViewHandler"
+          p:centralAuthenticationService-ref="centralAuthenticationService"/>            
+    
+    <bean id="loginImmediateResponseHandler" class="bingo.sso.core.login.LoginImmediateResponseHandler"/>    
+          
+    <bean id="loginFormAuthenticateHandler" class="bingo.sso.core.login.LoginFormAuthenticateHandler"
+          p:centralAuthenticationService-ref="centralAuthenticationService"/>              
+          
+    <bean id="trustedCredentialsHandler" class="bingo.sso.core.login.TrustedCredentialsHandler"
+          p:centralAuthenticationService-ref="centralAuthenticationService"/>
+    
+    <bean id="loginPathManager" class="bingo.sso.core.login.LoginPathManager"
+          p:serverLocalLoginView="${sso.ui.viewpath}/login.jsp"
+          p:relyPartyLoginView="${sso.ui.viewpath}/login.jsp"
+          p:oauthAuthrLoginView="${sso.ui.viewpath}/login.jsp"/>
+          
+    <bean id="logoutPreviousUserHandler" class="bingo.sso.core.login.LogoutPreviousUserHandler"
+          p:goOnLoginConfirmPage="${sso.ui.viewpath}/info/go_on_login_confirm.jsp"/>  
+          
+    <bean id="specificLoginAccountHandler" class="bingo.sso.core.login.SpecificLoginAccountHandler"
+          p:goOnLoginConfirmPage="${sso.ui.viewpath}/info/go_on_login_confirm.jsp"/>
+          
+</beans>

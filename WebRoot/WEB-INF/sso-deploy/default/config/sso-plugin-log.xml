@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="loginLogSql">
+		insert into sso_login_log
+		  (seq_id,TICKET_ID, principal_id, auth_type, principal_attr,return_url,logout_url,app_id,host_name)
+		values
+		  (s_sso_id.nextval, ?, ?, ?,?,?,?,?,?)
+	</entry>
+	<entry key="logoutLogSql">
+		insert into sso_logout_log
+         (seq_id, ticket_id, logout_services,host_name)
+       values
+         (s_sso_id.nextval, ?, ?, ?)
+	</entry>
+	
+</properties>

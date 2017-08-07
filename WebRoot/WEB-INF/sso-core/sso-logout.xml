@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"       
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+	
+	<bean id="logoutWithCloseBrowserHandler" class="bingo.sso.core.logout.LogoutWithCloseBrowserHandler"
+          p:centralAuthenticationService-ref="centralAuthenticationService"/>
+    <bean id="ticketGrantingTicketDestroyHandler" class="bingo.sso.core.logout.TicketGrantingTicketDestroyHandler"
+          p:centralAuthenticationService-ref="centralAuthenticationService"/>
+    <bean id="logoutHandler" class="bingo.sso.core.logout.LogoutHandler"
+          p:logoutView="${sso.ui.viewpath}/logout.jsp"
+          p:logoutUrls-ref="logoutUrls"/>    
+          
+    <bean id="sessionInvalidateLogoutHandler" class="bingo.sso.core.logout.handlers.SessionInvalidateLogoutHandler"/>
+    <bean id="authorizationHeaderLogoutHandler" class="bingo.sso.core.logout.handlers.AuthorizationHeaderLogoutHandler"/>
+</beans>

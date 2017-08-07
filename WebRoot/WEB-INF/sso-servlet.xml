@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"       
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+	
+    <!-- i18n资源文件 -->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource"
+          p:basename="messages"/>
+    
+    <!-- server sign on -->
+    <bean id="serverSignOnServlet" class="bingo.sso.core.servlet.ServerSignOnServlet"          
+          p:singleSignOnController-ref="singleSignOnController"
+          p:logoutErrorPage="${sso.ui.viewpath}/error/logout_error.jsp"
+          p:logoutWithCloseBrowserPage="${sso.ui.viewpath}/error/logout_with_close_browser.jsp"/>
+          
+    <!-- openid sign on -->
+	<bean id="singleSignOnServlet" class="bingo.sso.openid.servlet.SingleSignOnServlet"          
+          p:service-ref="openIdServerManager"/>
+          
+    <!-- openid sign on -->
+	<bean id="memberServlet" class="bingo.sso.openid.servlet.MemberServlet"          
+          p:service-ref="openIdServerManager"/>
+          
+    <!-- ================ FILTER DEFINITIONS ================ -->
+	<bean id="oncePerRequestServiceFilter"
+		class="bingo.sso.openid.filter.OncePerRequestServiceFilter"
+		abstract="true">
+		<property name="service" ref="openIdServerManager" />
+	</bean>
+	<bean id="memberFilter"
+		class="bingo.sso.openid.filter.MemberFilter"
+		parent="oncePerRequestServiceFilter" />
+		
+	<!-- SecurityContextUtil -->
+    <bean id="securityContextUtil" class="bingo.sso.server.web.SecurityContextUtil"          
+          p:singleSignOnController-ref="singleSignOnController"
+          p:openIdIdentifierParser-ref="openIdIdentifierParser"/>
+</beans>

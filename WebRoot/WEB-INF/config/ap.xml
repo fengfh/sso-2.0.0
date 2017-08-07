@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="sso.ap.publicKey.test_app">MIIBtjCCASsGByqGSM44BAEwggEeAoGBANQAf+r8Htwrp9kFGFIfGJvOo21Dy5b8wjtCLdHd6TyFkVw0j9cvc2UHPOn7B350XzYu4PUcRawWpzF3xC79tviSP3wkeMvoOlf1q6NuAJfTn0gP9rXfq/M+SopMOFLwaZoQUlprL6nnV8zCaoTQWQiHMcVUXpqh4NynMlsgg9pzAhUAlo10LS2NqkgvGJYiyEfesE8/jYECgYBza72Ngn8gjOnp8wGNqBejJCex8/EqNY3ya3DxQdMXD30J97aDznYvWEDqnaX5fa95MTZPXCfXJlASCbLHyeV6YT79k16rGqCibXQB8eh+Ugpht7cvZGiU2avsKVGLreoJba+wue5t1RVxnLSsRsbs4U/pGh1TxfZPkPD3efB1fAOBhAACgYAHE7nyONSyZGMwFuMB7ZKHdL62/jF8OaDoaNWSmH3uL9y2ipbJvhZb3PqqrV9ZcHNouOQbPgM4Gx2+2/u+EiSaCEr49zljCwnXRAum0CgisI13CP09ZBOiBs+XEyaDYuHv44S3oVjy/RpxD8rw8cDfzZX6eRXfBHySS8lkNXNzrA==</entry>
+    <entry key="sso.ap.publicKey.test_app2">
+        MIIBtzCCASwGByqGSM44BAEwggEfAoGBAP1/U4EddRIpUt9KnC7s5Of2EbdSPO9EAMMeP4C2USZp
+        RV1AIlH7WT2NWPq/xfW6MPbLm1Vs14E7gB00b/JmYLdrmVClpJ+f6AR7ECLCT7up1/63xhv4O1fn
+        xqimFQ8E+4P208UewwI1VBNaFpEy9nXzrith1yrv8iIDGZ3RSAHHAhUAl2BQjxUjC8yykrmCouuE
+        C/BYHPUCgYEA9+GghdabPd7LvKtcNrhXuXmUr7v6OuqC+VdMCz0HgmdRWVeOutRZT+ZxBxCBgLRJ
+        FnEj6EwoFhO3zwkyjMim4TwWeotUfI0o4KOuHiuzpnWRbqN/C/ohNWLx+2J6ASQ7zKTxvqhRkImo
+        g9/hWuWfBpKLZl6Ae1UlZAFMO/7PSSoDgYQAAoGAeVmoOt6BaDXV4aieNrsJGyF1Za3wxFOMTprU
+        l5kgSVF7SyWUESlrwOsabgcFKxFYq4jq4B3+uCsnvrqmBDeNLUB3qGG/Q9mSjd20Gx2cADB86yFg
+        5yfRzdUjCUlIozz+VPhQi/T3bsgxox9RWbb4fZ09dkNOpmgS7HoMGkChc5k=  
+    </entry>
+    <entry key="sso.ap.publicKey.test_app3">
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjRTJ+XOe3eg8bm0ukeUr5RCyf
+9IgKfAozXdXASBcmxbwJba1kGifZAwXyllwlpm7iDzlIG/hZbg/91LLA4/iQSkVp
+7T9CSu3+33Gf9FLJ9xWdCv9SylnaAXR+8B7uPC7CEfqgls40Pdn5pZJ65/cjCAFc
+Z7FGfzRJ+SlH+ko1CwIDAQAB
+    </entry>
+    <!-- private key , copy to gateway web app
+        MIIBSwIBADCCASwGByqGSM44BAEwggEfAoGBAP1/U4EddRIpUt9KnC7s5Of2EbdSPO9EAMMeP4C2
+        USZpRV1AIlH7WT2NWPq/xfW6MPbLm1Vs14E7gB00b/JmYLdrmVClpJ+f6AR7ECLCT7up1/63xhv4
+        O1fnxqimFQ8E+4P208UewwI1VBNaFpEy9nXzrith1yrv8iIDGZ3RSAHHAhUAl2BQjxUjC8yykrmC
+        ouuEC/BYHPUCgYEA9+GghdabPd7LvKtcNrhXuXmUr7v6OuqC+VdMCz0HgmdRWVeOutRZT+ZxBxCB
+        gLRJFnEj6EwoFhO3zwkyjMim4TwWeotUfI0o4KOuHiuzpnWRbqN/C/ohNWLx+2J6ASQ7zKTxvqhR
+        kImog9/hWuWfBpKLZl6Ae1UlZAFMO/7PSSoEFgIUNpcitiP8w+8h3jb+DlOa0jxdB9o=    
+     -->
+</properties>

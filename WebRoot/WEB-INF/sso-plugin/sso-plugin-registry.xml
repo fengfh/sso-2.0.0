@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+	<!-- Ticket Registry -->
+    <bean id="ticketGrantingTicketRegistry" class="bingo.sso.core.ticket.TicketGrantingTicketRegistry" />
+    
+    <!--Quartz -->
+    <!-- TICKET REGISTRY CLEANER -->
+    <bean id="ticketRegistryCleaner" class="bingo.sso.core.ticket.TicketRegistryCleaner"
+          p:ticketRegistry-ref="ticketGrantingTicketRegistry" 
+          p:delayExpireTimeMillis="36000000" /><!-- 36000秒,10小时 -->
+    
+    <bean id="jobDetailTicketRegistryCleaner" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean"
+          p:targetObject-ref="ticketRegistryCleaner"
+          p:targetMethod="clean" />
+    
+    <bean id="triggerJobDetailTicketRegistryCleaner" class="org.springframework.scheduling.quartz.SimpleTriggerBean"
+          p:jobDetail-ref="jobDetailTicketRegistryCleaner"
+          p:startDelay="20000"
+          p:repeatInterval="5000000" />          
+	
+</beans>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"       
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+    <bean id="centralAuthenticationService" class="bingo.sso.core.authentication.CentralAuthenticationService"
+          p:ticketGrantingTicketRegistry-ref="ticketGrantingTicketRegistry"
+          p:ticketGrantingTicketExpirationPolicy-ref="grantingTicketExpirationPolicy"
+          p:authenticationManager-ref="authenticationManager"
+          p:ticketGrantingTicketUniqueTicketIdGenerator-ref="uniqueTicketIdGenerator"/>
+          
+          
+    <bean id="credentialsToPrincipalResolver" class="bingo.sso.core.authentication.PrincipalResolver">
+        <property name="resolvers">
+            <list>
+                <!-- add your CredentialsToPrincipalResolver here -->                
+            </list>
+        </property>    
+    </bean>
+    
+    <bean id="authenticationManager" class="bingo.sso.core.authentication.AuthenticationManager"
+          p:authenticationHandlers-ref="authenticationHandlers"
+          p:principalValidators-ref="principalValidators">
+        <property name="credentialsToPrincipalResolvers">
+            <list>
+                <ref bean="credentialsToPrincipalResolver"/>
+            </list>
+        </property>
+        <property name="trustedAuthenticationHandler">
+            <bean class="bingo.sso.core.authentication.TrustedAuthenticationHandler"/>
+        </property>
+    </bean>
+
+    <!-- The scheduler bean wires up any triggers that define scheduled tasks -->
+    <bean id="scheduler" class="bingo.sso.core.utils.AutowiringSchedulerFactoryBean"/>
+</beans>

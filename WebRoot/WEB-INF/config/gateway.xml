@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <!-- 网关模式配置信息，如果需要配置为网关模式，请修改sso.gateway为true，并且把sso.gateway.loginUrl改为网关登录地址 -->    
+    <entry key="sso.gateway">false</entry>
+    <entry key="sso.gateway.loginUrl">/sso_app/login.jsp</entry>
+    <entry key="sso.gateway.publicKey">
+        MIIBtzCCASwGByqGSM44BAEwggEfAoGBAP1/U4EddRIpUt9KnC7s5Of2EbdSPO9EAMMeP4C2USZp
+        RV1AIlH7WT2NWPq/xfW6MPbLm1Vs14E7gB00b/JmYLdrmVClpJ+f6AR7ECLCT7up1/63xhv4O1fn
+        xqimFQ8E+4P208UewwI1VBNaFpEy9nXzrith1yrv8iIDGZ3RSAHHAhUAl2BQjxUjC8yykrmCouuE
+        C/BYHPUCgYEA9+GghdabPd7LvKtcNrhXuXmUr7v6OuqC+VdMCz0HgmdRWVeOutRZT+ZxBxCBgLRJ
+        FnEj6EwoFhO3zwkyjMim4TwWeotUfI0o4KOuHiuzpnWRbqN/C/ohNWLx+2J6ASQ7zKTxvqhRkImo
+        g9/hWuWfBpKLZl6Ae1UlZAFMO/7PSSoDgYQAAoGAeVmoOt6BaDXV4aieNrsJGyF1Za3wxFOMTprU
+        l5kgSVF7SyWUESlrwOsabgcFKxFYq4jq4B3+uCsnvrqmBDeNLUB3qGG/Q9mSjd20Gx2cADB86yFg
+        5yfRzdUjCUlIozz+VPhQi/T3bsgxox9RWbb4fZ09dkNOpmgS7HoMGkChc5k=  
+    </entry>
+    <!-- private key , copy to gateway web app
+        MIIBSwIBADCCASwGByqGSM44BAEwggEfAoGBAP1/U4EddRIpUt9KnC7s5Of2EbdSPO9EAMMeP4C2
+        USZpRV1AIlH7WT2NWPq/xfW6MPbLm1Vs14E7gB00b/JmYLdrmVClpJ+f6AR7ECLCT7up1/63xhv4
+        O1fnxqimFQ8E+4P208UewwI1VBNaFpEy9nXzrith1yrv8iIDGZ3RSAHHAhUAl2BQjxUjC8yykrmC
+        ouuEC/BYHPUCgYEA9+GghdabPd7LvKtcNrhXuXmUr7v6OuqC+VdMCz0HgmdRWVeOutRZT+ZxBxCB
+        gLRJFnEj6EwoFhO3zwkyjMim4TwWeotUfI0o4KOuHiuzpnWRbqN/C/ohNWLx+2J6ASQ7zKTxvqhR
+        kImog9/hWuWfBpKLZl6Ae1UlZAFMO/7PSSoEFgIUNpcitiP8w+8h3jb+DlOa0jxdB9o=    
+     -->
+</properties>

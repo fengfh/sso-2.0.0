@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <!-- 主题样式 -->
+    <entry key="sso.ui.theme">default</entry>
+    
+    <!-- 页面路径 -->
+    <entry key="sso.ui.viewpath">/views/default</entry>
+</properties>

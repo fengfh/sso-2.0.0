@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <!-- 数据库连接池配置 -->
+    <entry key="jdbc.maxActive">100</entry>
+    <entry key="jdbc.maxIdle">5</entry>
+    
+    <!-- 请修改下面的数据连接配置为真实的信息 -->
+    <entry key="jdbc.driverClassName">org.h2.Driver</entry>
+    <entry key="jdbc.url">jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;MODE=Oracle</entry>
+    <entry key="jdbc.username"></entry>
+    <entry key="jdbc.password"></entry>
+    <entry key="jdbc.validationQuery">select 1 from dual</entry>
+
+    <!-- h2database 
+    <entry key="jdbc.driverClassName">org.h2.Driver</entry>
+    <entry key="jdbc.url">jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;MODE=Oracle</entry>
+    <entry key="jdbc.username"></entry>
+    <entry key="jdbc.password"></entry>
+    <entry key="jdbc.validationQuery">select 1 from dual</entry>
+    -->
+    
+    <!-- oracle    
+    <entry key="jdbc.driverClassName">oracle.jdbc.driver.OracleDriver</entry>
+    <entry key="jdbc.url">jdbc:oracle:thin:@localhost:1521:orcl</entry>
+    <entry key="jdbc.username">sso</entry>
+    <entry key="jdbc.password">sso</entry>
+    <entry key="jdbc.validationQuery">select 1 from dual</entry>
+    -->
+     
+    <!-- sqlserver    
+    <entry key="jdbc.driverClassName">com.microsoft.sqlserver.jdbc.SQLServerDriver</entry>
+    <entry key="jdbc.url">jdbc:sqlserver://localhost:1433;databaseName=tempdb;</entry>
+    <entry key="jdbc.username">{your username}</entry>
+    <entry key="jdbc.password">{your password}</entry>
+    <entry key="jdbc.validationQuery">select 1</entry>
+    -->    
+</properties>

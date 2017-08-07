@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"       
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+	
+	<!-- import jdbc template -->
+	<import resource="../../sso-plugin/sso-plugin-jdbctemplate.xml"/>
+	
+	<!-- import registry  ,if choose db,, need db script init
+	<import resource="../../sso-plugin/sso-plugin-registry-db.xml"/>
+	<import resource="../../sso-plugin/sso-plugin-registry.xml"/>
+	-->
+	<import resource="../../sso-plugin/sso-plugin-registry.xml"/>
+	
+	<!-- import log plugin , need db script init 
+		<import resource="../../sso-plugin/sso-plugin-log.xml"/>
+		loginHandlers and loginImmediateHandlers config(place on the last handler):
+		<ref bean="dbLogLoginHandler"/>
+		logoutHandlers config(place on the last handler):
+		<ref bean="dbLogLogoutHandler"/>
+	-->
+	
+	<!-- import authentication plugin -->
+	<import resource="../../sso-plugin/sso-plugin-jdbcauth.xml"/>
+	
+	<import resource="../../sso-plugin-gmcc-portal.xml"/>
+
+	<!-- single sign on config -->
+    <bean id="singleSignOnConfig" class="bingo.sso.core.SingleSignOnConfig">        
+    </bean>
+    
+	<!-- 用户身份验证器实现类列表，在部署时请修改为与项目环境一致的验证方式，如数据库验证，LDAP验证  -->
+	<util:list id="authenticationHandlers">
+ 		
+		<!-- 数据库验证，请按项目需求修改config/database.xml的配置信息 -->
+        <ref bean="jdbcAuthenticationHandler"/>
+        
+        <ref bean="poralUserAuthenticationHandler"/>
+	</util:list>
+	
+	<!-- 实现 bingo.sso.server.cas.auth.IPrincipalValidator 接口 -->
+	<util:list id="principalValidators">
+	</util:list>
+	
+	<!-- 应用是否受权检查器，如果存在多个检查器，只要有一个检查通过，则有权限访问SSO -->
+	<util:list id="serverAuthCheckers">
+	</util:list>
+    
+	<!-- 登录流程的处理链配置 -->
+	<util:list id="loginHandlers">
+		<ref bean="ticketCookieRetrievingHandler"/>
+		<ref bean="trustedCredentialsHandler"/>
+		<ref bean="gmccPortalCookieRetrievingHandler"/>
+		<ref bean="gmccPortalCookieAuthenticateHandler"/>
+		<ref bean="loginFormViewHandler"/>
+		<ref bean="portalLoginHandler"/>
+		<ref bean="loginFormAuthenticateHandler"/>
+		<ref bean="ticketCookieWritingHandler"/>
+		<ref bean="loginSuccessHandler"/>
+	</util:list>
+	
+	<!-- 登录流程(不交互)的处理链配置 -->
+	<util:list id="loginImmediateHandlers">
+		<ref bean="ticketCookieRetrievingHandler"/>
+		<ref bean="trustedCredentialsHandler"/>
+		<ref bean="erviceCheckingHandler"/>
+		<ref bean="gmccPortalCookieRetrievingHandler"/>
+		<ref bean="gmccPortalCookieAuthenticateHandler"/>
+		
+		<ref bean="ticketCookieWritingHandler"/>
+		<ref bean="serviceGrantingHandler"/>
+		<ref bean="loginImmediateResponseHandler"/>
+		<!-- do log 
+		<ref bean="dbLogLoginHandler"/>
+		-->
+	</util:list>
+    
+	<!-- 注销流程的处理链配置 -->
+	<util:list id="logoutHandlers">
+		<!-- add your handlers here bofore logout from sso -->
+    
+		<ref bean="logoutWithCloseBrowserHandler"/>
+		<ref bean="ticketGrantingTicketDestroyHandler"/>
+		<ref bean="logoutHandler"/>
+        
+		<!-- add your handlers here after logout from sso -->
+        
+		<ref bean="logoutHandler"/>
+	</util:list>
+	
+	<util:list id="logoutUrls">
+		<value>http://yohn.bingosoft.net/sso_app/openid/dologout</value>
+		<value>http://localhost:2542/app/openid/dologout</value>
+	</util:list>
+</beans>

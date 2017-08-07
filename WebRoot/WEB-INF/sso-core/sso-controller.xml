@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"       
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+	
+    <bean id="singleSignOnController" class="bingo.sso.core.SingleSignOnController"
+          p:manager-ref="singleSignOnManager"
+          p:loginController-ref="loginController"
+          p:logoutController-ref="logoutController"/>
+          
+    <bean id="loginController"  class="bingo.sso.core.login.LoginController"/>
+    <bean id="logoutController" class="bingo.sso.core.logout.LogoutController"/>
+
+    <bean id="singleSignOnManager" class="bingo.sso.core.SingleSignOnManager"
+        p:config-ref="singleSignOnConfig"
+        p:loginHandlers-ref="loginHandlers"
+        p:loginImmediateHandlers-ref="loginImmediateHandlers"
+        p:logoutHandlers-ref="logoutHandlers"
+        p:exceptionHandlers-ref="exceptionHandlers"
+        p:centralAuthenticationService-ref="centralAuthenticationService"
+        p:clientHostAccesser-ref="relyPartyHostAccesser"
+        p:loginPathManager-ref="loginPathManager"
+        p:singleSignOnContinueable-ref="singleSignOnContinueable"
+        p:sessionInvalidateHandler-ref="sessionInvalidateHandler">
+    </bean>
+    
+    <!-- Exception Handlers -->
+    <util:list id="exceptionHandlers">
+        <bean class="bingo.sso.core.exception.handlers.ForwardRedirectHandler"/>
+        <bean class="bingo.sso.core.login.LoginExceptionHandler"/>
+    </util:list>
+    
+    <bean id="singleSignOnContinueable" class="bingo.sso.core.support.SingleSignOnContinueable"/>  
+    <bean id="sessionInvalidateHandler" class="bingo.sso.core.support.SessionInvalidateHandler"
+    	  p:sessionInvalidatePage="${sso.ui.viewpath}/error/session_invalidate.jsp"/> 
+</beans>
